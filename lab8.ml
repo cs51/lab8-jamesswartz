@@ -132,9 +132,8 @@ one. If there is no listener with that id, do nothing.
 ......................................................................*)
             
   let remove_listener (evt : 'a event) (i : id) : unit =
-    let filter_helper x = 
-      match x with
-      | {id = id1; action = _} -> id1 <> i in
+    let filter_helper {id = id1; action = a} = 
+      id1 <> i in
     evt := List.filter (filter_helper) !evt;;
 
 (*......................................................................
