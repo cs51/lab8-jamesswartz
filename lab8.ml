@@ -142,7 +142,9 @@ listening for the event.
 ......................................................................*)
             
   let fire_event (evt : 'a event) (arg : 'a) : unit =
-    failwith "WEvent.fire_event not implemented"
+    fire_helper {id = id1; action = a} = 
+      a in
+    List.iter (fire_helper) evt!
 
 end
   
