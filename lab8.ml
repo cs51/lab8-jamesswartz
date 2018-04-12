@@ -142,10 +142,9 @@ listening for the event.
 ......................................................................*)
             
   let fire_event (evt : 'a event) (arg : 'a) : unit =
-    fire_helper {id = id1; action = a} = 
-      a in
-    List.iter (fire_helper) evt!
-
+    let fire_helper {id = id1; action = a} = 
+      a arg in
+    List.iter (fire_helper) !evt;;
 end
   
 (*====================================================================
