@@ -122,7 +122,8 @@ decide how to implement this.
 ......................................................................*)
                                                    
   let add_listener (evt : 'a event) (listener : 'a -> unit) : id =
-    failwith "WEvent.add_listener not implemented"
+    let id = new_id () in
+    evt :: {id = id; action = listener}; id;;
 
 (*......................................................................
 Exercise 2: Write remove_listener, which, given an id and an event,
